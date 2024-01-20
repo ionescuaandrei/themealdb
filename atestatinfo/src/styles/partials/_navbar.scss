@@ -1,0 +1,123 @@
+
+.navbar{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 55px;
+  box-shadow: 0 3px 6px var(--shadow-color);
+  background-color: var(--background-color);
+  color: var(--text-color);
+  .logo{
+    font-size: 1.5em;
+    font-weight: bold;
+    color: var(--primary-color);
+    text-shadow: 0 1px 3px var(--shadow-color);
+    span{
+      color: var(--text-color);
+    }
+  }
+  .nav-links{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
+    font-size: 0.9em;
+    a{
+      color: var(--text-color);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      position: relative;
+      &::before{
+        content: '';
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        display: inline-block;
+        height: 3px;
+        width: 100%;
+        background-color: var(--primary-color);
+        transform: scaleX(0);
+        transition: transform calc(var(--animation-speed) * 0.2) ease-in;
+      }
+      &:hover{
+        &::before{
+          transform: scaleX(1);
+        }
+      }
+      &:active{
+        color: var(--primary-color);
+        font-weight: 500;
+      }
+    }
+  }
+  .sidebar-btn{
+    display: none;
+    position: relative;
+    height: 32px;
+    width: 32px;
+  .bar{
+    position: absolute;
+    border-radius: 5px;
+    height: 6px;
+    width: 100%;
+    transition: transform calc(var(--animation-speed) * 0.2) ease-in-out;
+    background-color: var(--text-color);
+    &:nth-child(1){
+      top: 0;
+    }
+    &:nth-child(2){
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    &:nth-child(3){
+      top: 100%;
+      transform: translateY(-100%);
+    }
+  }
+  &.active{
+    .bar{
+      transform-origin: center;
+      top: 50%;
+      &:nth-child(1){
+        transform: translate(0, -50%) scale(1) rotate(45deg) ;
+      }
+      &:nth-child(2){
+        transform: scaleX(0);
+      }
+      &:nth-child(3){
+        transform: translate(0, -50%) scale(1) rotate(-45deg) ;
+      }
+    }
+  }
+}
+}
+
+.sidebar{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 260px;
+  height: 100vh;
+  background-color: var(--background-color);
+  box-shadow: 0 0 0 100vw rgba(0,0,0,0.2);
+  animation: calc(var(--animation-speed) * 0.2) ease-in-out slideInLeft;
+  .sidebar-link{
+    display: block;
+    padding: .5em 1em;
+    border-left: 0.4em solid transparent;
+    margin: 1em 0;
+    color: var(--text-color);
+    font-weight: 400;
+    &.active{
+      border-left-color: var(--primary-color);
+    }
+    &:hover{
+      border-left-color: var(--primary-color);
+      background-color: rgba(0,0,0,0.2);
+    }
+    svg{
+      width: 1.2em;
+      margin-right: .5em;
+    }
+  }
+}
