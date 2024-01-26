@@ -1,5 +1,7 @@
 import Navbar from "./components/Navbar";
 import HeroSection from "./components/HeroSection";
+import ImproveSkills from "./components/improveSkills";
+
 
 function App() {
   return (
@@ -7,6 +9,7 @@ function App() {
       <Navbar />
       <div className="container main">
         <HeroSection />
+        <ImproveSkills />
       </div>
     </div>
   );
