@@ -5,6 +5,7 @@ const list = [
   "Simplu si rapid",
   "Renunță la cărțile fizice de rețete",
   "Învață despre nutriție",
+  "Accesează noua platformă culinară"
 ]
 
 const improveSkills = () => {
@@ -18,7 +19,7 @@ const improveSkills = () => {
           Improve Your Culinary Skills!
         </h1>
         { list.map((item,index) => (
-          <p className="skill-item" key={index}>{item}</p>
+          <p className="skills-item" key={index}> {item} </p>
         ))
         }
         <button className="btn">Sign up now!</button>
